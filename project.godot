@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="jellow"
 run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
+config/icon="res://sprites/kugel-vorne1.png"
 
 [display]
 
@@ -33,5 +33,5 @@ default_clear_color=false
 
 [rendering]
 
-environment/default_clear_color=Color( 0.929412, 0.705882, 0.631373, 1 )
+environment/default_clear_color=Color( 0.137255, 0.192157, 0.239216, 1 )
 environment/default_environment="res://default_env.tres"

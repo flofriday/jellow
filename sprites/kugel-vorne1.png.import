@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jellow_sit.png-a179cee1f24464a73a23d3aa232002c2.stex"
+path="res://.import/kugel-vorne1.png-c0141429fcb0bbd0357c008d2ad40207.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://jellow_sit.png"
-dest_files=[ "res://.import/jellow_sit.png-a179cee1f24464a73a23d3aa232002c2.stex" ]
+source_file="res://sprites/kugel-vorne1.png"
+dest_files=[ "res://.import/kugel-vorne1.png-c0141429fcb0bbd0357c008d2ad40207.stex" ]
 
 [params]
 

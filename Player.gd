@@ -11,13 +11,21 @@ const UP_DIRECTION = Vector2(0, -1)
 
 var motion = Vector2()
 
+func set_animation(new):
+	if $Sprite.animation != new:
+		$Sprite.play(new)
+
+func update_animation():
+	if motion.x > 0:
+		set_animation("right")
+	elif motion.x < 0:
+		set_animation("left")
+
 func _physics_process(delta):
 	# Get the user input
 	if Input.is_action_pressed("ui_right"):
-		$Sprite.flip_h = false
 		motion.x = min(motion.x + ACCELERATION, SPEED_LIMIT)
 	elif Input.is_action_pressed("ui_left"):
-		$Sprite.flip_h = true
 		motion.x = max(motion.x - ACCELERATION, -SPEED_LIMIT)
 	else:
 		# Meh
@@ -38,3 +46,6 @@ func _physics_process(delta):
 	
 	# Move the body
 	motion = move_and_slide(motion, UP_DIRECTION)
+	
+	# Animate the player
+	update_animation()
