@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://World.gd" type="Script" id=4]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WorldGenerator.tscn" type="PackedScene" id=6]
+
+[node name="World" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 442.906, 651.2 )
+z_index = 1
+script = ExtResource( 2 )
+
+[node name="CameraController" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraController"]
+current = true
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="WorldGenerator" parent="." instance=ExtResource( 6 )]
