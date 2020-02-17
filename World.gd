@@ -4,7 +4,8 @@ func _ready():
 	var center = get_viewport().size/2
 	$CameraController.position = center
 	$Player.position = center
-	$WorldGenerator.startup()
+	$Player.freeze = true
+	$Player.visible = false
 
 func _physics_process(delta):
 	# Set the camera 
@@ -12,8 +13,26 @@ func _physics_process(delta):
 		$CameraController.position.y = $Player.position.y
 
 	# Set gameover if the player is lower than the camera
-	if $Player.position.y > $CameraController.position.y + get_viewport().size.y:
+	if $Player.position.y > $CameraController.position.y + get_viewport().size.y/2:
 		game_over();
-		
+	
+func start_game():
+	var center = get_viewport().size/2
+	$CameraController.position = center
+	$Player.position = center
+	$Player.visible = true
+	$Player.freeze = false
+	$WorldGenerator.startup()
+	
 func game_over():
-	print("GAME OVER")
+	var center = get_viewport().size/2
+	$CameraController.position = center
+	$WorldGenerator.clear_all()
+	$GUI.show_game_over()
+	$Player.position = center
+	$Player.freeze = true
+	$Player.visible = false
+
+# Start the game if the GUI says so
+func _on_GUI_start_game():
+	start_game()

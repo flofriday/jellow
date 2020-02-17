@@ -10,6 +10,7 @@ const ACCELERATION = 40
 const UP_DIRECTION = Vector2(0, -1)
 
 var motion = Vector2()
+var freeze = true
 
 func set_animation(new):
 	if $Sprite.animation != new:
@@ -22,6 +23,11 @@ func update_animation():
 		set_animation("left")
 
 func _physics_process(delta):
+	# Exit if freeze is on
+	if freeze:
+		motion = Vector2()
+		return
+	
 	# Get the user input
 	if Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x + ACCELERATION, SPEED_LIMIT)

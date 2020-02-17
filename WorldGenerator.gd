@@ -8,6 +8,11 @@ func startup():
 	var player = get_owner().get_node("Player")
 	addPlatform(player.position.x, player.position.y + 300)
 	generatePlatforms()
+
+func clear_all():
+	for child in get_children():
+		remove_child(child)
+		child.queue_free()
 	
 # This code generates platforms if necesarry
 func generatePlatforms():
