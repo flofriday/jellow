@@ -7,15 +7,15 @@
 size = 48
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 32
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 28
 font_data = ExtResource( 1 )
 
@@ -65,7 +65,7 @@ __meta__ = {
 margin_top = 77.0
 margin_right = 291.0
 margin_bottom = 115.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "Score: 0"
 align = 1
 valign = 1
@@ -77,7 +77,7 @@ __meta__ = {
 margin_top = 135.0
 margin_right = 291.0
 margin_bottom = 179.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,10 +91,11 @@ __meta__ = {
 }
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer"]
-margin_right = 16.0
-margin_bottom = 33.0
-custom_fonts/font = SubResource( 3 )
-text = "0"
+margin_right = 175.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 4 )
+text = "Score: 0
+Highscore: 10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
