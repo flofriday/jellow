@@ -37,8 +37,8 @@ func user_input_desktop():
 func user_input_mobile():
 	motion.x = Input.get_accelerometer().x * 100
 
+# Move the player depending on the user input
 func user_input():
-	# Move the player depending on the user
 	if os_name == "Android" or os_name == "iOS":
 		user_input_mobile()
 	else:
