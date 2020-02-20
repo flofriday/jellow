@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://NotAnAd.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="NotAnAd" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -720.0
+rect_min_size = Vector2( 0, 80 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 580.0
+margin_bottom = 55.0
+size_flags_vertical = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 517.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 517.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 1 )
+text = "A very big header"
+
+[node name="Text" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 33.0
+margin_right = 517.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 2 )
+text = "Some useless text"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 521.0
+margin_right = 580.0
+margin_bottom = 55.0
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/CenterContainer"]
+margin_top = 12.0
+margin_right = 59.0
+margin_bottom = 42.0
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
+text = "Open"
+[connection signal="pressed" from="MarginContainer/HBoxContainer/CenterContainer/Button" to="." method="_on_Button_pressed"]

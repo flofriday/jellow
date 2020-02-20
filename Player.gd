@@ -35,7 +35,7 @@ func user_input_desktop():
 
 # Here we move the player via the gyroscope (tilting of the phone)
 func user_input_mobile():
-	motion.x = Input.get_accelerometer().x * 100
+	motion.x = Input.get_accelerometer().x * 200
 
 # Move the player depending on the user input
 func user_input():
@@ -48,13 +48,12 @@ func _physics_process(_delta):
 	# Exit if freeze is on
 	if freeze:
 		motion = Vector2()
-		move_and_slide(motion, UP_DIRECTION)
+		motion = move_and_slide(motion, UP_DIRECTION)
 		return
 	
 	# Get the user input
 	user_input()
-		
-	# Gravitiy
+
 	motion.y += GRAVITY
 	
 	# Jump
@@ -70,5 +69,12 @@ func _physics_process(_delta):
 	# Move the body
 	motion = move_and_slide(motion, UP_DIRECTION)
 	
+	# Teleport the player if he is out the frame
+	if position.x > get_viewport().size.x:
+		position.x = 0
+	elif position.x < 0:
+		position.x = get_viewport().size.x
+		
+	# Gravitiy
 	# Animate the player
 	update_animation()
