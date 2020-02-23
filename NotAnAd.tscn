@@ -11,9 +11,9 @@ font_data = ExtResource( 1 )
 size = 18
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=3]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 20
 font_data = ExtResource( 1 )
 
@@ -75,7 +75,8 @@ margin_bottom = 55.0
 margin_top = 12.0
 margin_right = 59.0
 margin_bottom = 42.0
-theme = SubResource( 4 )
-custom_fonts/font = SubResource( 3 )
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Open"
+[connection signal="visibility_changed" from="." to="." method="_on_NotAnAd_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/CenterContainer/Button" to="." method="_on_Button_pressed"]

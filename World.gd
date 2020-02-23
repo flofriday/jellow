@@ -11,7 +11,7 @@ func _physics_process(delta):
 	# Set the camera 
 	if $CameraController.position.y > $Player.position.y:
 		$CameraController.position.y = $Player.position.y
-		$GUI.set_score(calc_score())
+		$ScoreController.set_score(calc_score())
 
 	# Set gameover if the player is lower than the camera
 	if $Player.position.y > $CameraController.position.y + get_viewport().size.y/2:
@@ -24,6 +24,7 @@ func start_game():
 	$Player.visible = true
 	$Player.freeze = false
 	$WorldGenerator.startup()
+	$ScoreController.set_score(0)
 	
 func game_over():
 	var center = get_viewport().size/2
@@ -33,6 +34,7 @@ func game_over():
 	$Player.position = center
 	$Player.freeze = true
 	$Player.visible = false
+	$ScoreController.save_highscore()
 
 func calc_score():
 	var center = get_viewport().size/2

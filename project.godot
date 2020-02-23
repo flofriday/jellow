@@ -23,7 +23,9 @@ config/icon="res://sprites/kugel-vorne1.png"
 
 window/size/width=600
 window/size/height=800
+window/dpi/allow_hidpi=true
 window/handheld/orientation="portrait"
+window/ios/hide_home_indicator=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

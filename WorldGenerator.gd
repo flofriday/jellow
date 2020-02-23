@@ -41,8 +41,10 @@ func generate_platforms():
 	if upper_limit > highest:
 		return
 
+    # Generate a single platform
 	var start = highest
-	var x = rand_range(0+platform_size.x, 600-platform_size.x)
+	var width = get_viewport().size.x
+	var x = rand_range(0+platform_size.x, width-platform_size.x)
 	add_platform(x, start - 210, platform)
 
 func remove_platforms():

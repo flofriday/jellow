@@ -4,23 +4,23 @@ signal start_game
 signal pause_game
 signal unpause_game
 
-var score = 0
-
 func _ready():
-	set_score(0)
 	$StartUI.visible = true
 	$GameUI.visible = false
 	$PauseUI.visible = false
 	$GameoverUI.visible = false
 
-func set_score(_score):
-	score = _score
-	$GameUI/MarginContainer/ScoreLabel.text = str(score)
-	$GameoverUI/VBoxContainer/CenterContainer/VBoxContainer/Score.text = "Score: " + str(score)
+func _on_score_changed(_score, _highscore):
+	$GameUI/MarginContainer/ScoreLabel.text = str(_score)
+	$GameoverUI/VBoxContainer/CenterContainer/VBoxContainer/Score.text = "Score: %d\nHighscore: %d" % [_score, _highscore]
+
+	if _score == _highscore:
+		$GameoverUI/VBoxContainer/CenterContainer/VBoxContainer/Title.text = "New Highscore"
+	else:
+		$GameoverUI/VBoxContainer/CenterContainer/VBoxContainer/Title.text = "Game Over"
+
 
 func _on_StartButton_pressed():
-	set_score(0)
-
 	$StartUI.visible = false
 	$GameUI.visible = true
 	$PauseUI.visible = false
@@ -35,3 +35,4 @@ func show_game_over():
 	$GameUI.visible = false
 	$PauseUI.visible = false
 	$GameoverUI.visible = true
+
