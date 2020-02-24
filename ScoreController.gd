@@ -43,5 +43,5 @@ func load_highscore():
 		return
 
 	file.open(file_path, File.READ)
-	highscore = int(file.get_as_text())
+	highscore = float(file.get_as_text())
 	file.close()

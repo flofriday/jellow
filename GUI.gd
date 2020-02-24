@@ -11,7 +11,7 @@ func _ready():
 	$GameoverUI.visible = false
 
 func _on_score_changed(_score, _highscore):
-	$GameUI/MarginContainer/ScoreLabel.text = str(_score)
+	$GameUI/MarginContainer/ScoreLabel.text = "%d" % _score
 	$GameoverUI/VBoxContainer/CenterContainer/VBoxContainer/Score.text = "Score: %d\nHighscore: %d" % [_score, _highscore]
 
 	if _score == _highscore:

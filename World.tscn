@@ -12,8 +12,7 @@
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-visible = false
-z_index = 1
+z_index = 10
 script = ExtResource( 2 )
 
 [node name="CameraController" parent="." instance=ExtResource( 3 )]
@@ -21,7 +20,14 @@ script = ExtResource( 2 )
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
 [node name="WorldGenerator" parent="." instance=ExtResource( 6 )]
+z_index = 1
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
+
+[node name="HighscoreLine" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( 0, 0, 600, 0 )
+width = 4.0
+default_color = Color( 0.796078, 1, 0.847059, 1 )
 [connection signal="start_game" from="GUI" to="." method="_on_GUI_start_game"]
 [connection signal="score_changed" from="ScoreController" to="GUI" method="_on_score_changed"]

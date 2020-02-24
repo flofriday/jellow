@@ -25,6 +25,8 @@ func start_game():
 	$Player.freeze = false
 	$WorldGenerator.startup()
 	$ScoreController.set_score(0)
+	$HighscoreLine.visible = true
+	set_highscore_line($ScoreController.get_highscore())
 	
 func game_over():
 	var center = get_viewport().size/2
@@ -34,12 +36,27 @@ func game_over():
 	$Player.position = center
 	$Player.freeze = true
 	$Player.visible = false
+	$HighscoreLine.visible = false
 	$ScoreController.save_highscore()
 
 func calc_score():
 	var center = get_viewport().size/2
 	var pos = $Player.position.y - center.y
-	return int(pos / 100) * -1
+	return (pos / -100)
+
+func set_highscore_line(y):
+	# Don't draw a line for small highscores
+	if y < 2: 
+		$HighscoreLine.visible = false
+		return
+
+	y *= -100
+	y += (get_viewport().size/2).y
+	print(y)
+	$HighscoreLine.clear_points()
+	$HighscoreLine.add_point(Vector2(0, 0), 0)
+	$HighscoreLine.add_point(Vector2(get_viewport().size.x, 0), 1)
+	$HighscoreLine.position.y = y
 
 # Start the game if the GUI says so
 func _on_GUI_start_game():
